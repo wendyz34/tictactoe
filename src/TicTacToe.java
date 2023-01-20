@@ -4,6 +4,7 @@ public class TicTacToe
 {
     private Player[] players;
     private Board board;
+    private boolean computer = false;
 
     /**
      * Creates a player with the symbol X and a player with the symbol O
@@ -14,22 +15,34 @@ public class TicTacToe
     public TicTacToe()
     {
         Scanner scan = new Scanner(System.in);
-        System.out.println("How many player? choose 2-4");
-        int numPlayer = scan.nextInt();
-        players = new Player[numPlayer];
-        if (numPlayer==2){
+        System.out.println("Single Player? y/n");
+        String answer = scan.nextLine();
+        if (answer.equals("y")){
+            computer = true;
+            players = new Player[1];
             players[0] = new Player("X");
             players[1] = new Player("O");
-        }else if (numPlayer==3){
-            players[0] = new Player("X");
-            players[1] = new Player("O");
-            players[2] = new Player("*");
-        }else{
-            players[0] = new Player("X");
-            players[1] = new Player("O");
-            players[2] = new Player("*");
-            players[3] = new Player("#");
         }
+
+        if (answer.equals("n")){
+            System.out.println("How many player? choose 2-4");
+            int numPlayer = scan.nextInt();
+            players = new Player[numPlayer];
+            if (numPlayer==2){
+                players[0] = new Player("X");
+                players[1] = new Player("O");
+            }else if (numPlayer==3){
+                players[0] = new Player("X");
+                players[1] = new Player("O");
+                players[2] = new Player("*");
+            }else{
+                players[0] = new Player("X");
+                players[1] = new Player("O");
+                players[2] = new Player("*");
+                players[3] = new Player("#");
+            }
+        }
+
 
         board = new Board();
 
@@ -89,6 +102,15 @@ public class TicTacToe
             System.out.print("Player " + player.getSymbol() + "'s turn! Choose a space: ");
             int chosenSpace = scanner.nextInt();
             selectedValidSpace = board.recordMove(chosenSpace, player);
+
+            if (computer == true){
+                System.out.println("Computer's turn: " );
+                int numPlayers = (int)Math.pow(players.length,2);
+                chosenSpace = (int)(Math.random()*numPlayers);
+            }
+
+
+
         }
 
         // redraw the board, which will include the newly placed X or O as updated via recordMove

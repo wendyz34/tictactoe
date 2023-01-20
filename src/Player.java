@@ -7,6 +7,7 @@ public class Player {
     {
         this.symbol = symbol;
     }
+   // public String Computer(){return symbol;}
 
     public String getSymbol()
     {

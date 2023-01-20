@@ -17,6 +17,7 @@ public class Board {
             spaces[i] = new Space();
         }
 
+
             if (boardSize==9){
                 winningConfigs = new WinCondition[8];
                 winningConfigs[0] = new WinCondition(0, 1, 2);
