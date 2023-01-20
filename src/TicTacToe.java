@@ -84,7 +84,7 @@ public class TicTacToe
 
         // repeat until player selects a valid space, which occurs when recordMove returns true;
         // this occurs when the player has selected a numbered "blank" space.
-        while (!selectedValidSpace)
+         while (!selectedValidSpace)
         {
             System.out.print("Player " + player.getSymbol() + "'s turn! Choose a space: ");
             int chosenSpace = scanner.nextInt();

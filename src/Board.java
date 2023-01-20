@@ -195,11 +195,12 @@ public class Board {
         // if user chooses a space between 1 and 9, try to occupy it, which updates
         // the symbol and returns true if the space is currently a numbered "blank"
         // space
-        if (adjustedSpace >= 0 && adjustedSpace < spaces.length) {
+       if (adjustedSpace >= 0 && adjustedSpace < spaces.length) {
             boolean spaceOccupied = spaces[adjustedSpace].occupySpace(player.getSymbol());
             return spaceOccupied;
         }
         return false;
+
     }
 
     /**

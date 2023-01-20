@@ -26,11 +26,13 @@ public class Space {
      */
     public boolean occupySpace(String symbolOfOccupant)
     {
-        if (symbol == BLANK)
+        symbol = symbolOfOccupant;
+        return true;
+       /* if (symbol == BLANK)
         {
             symbol = symbolOfOccupant;
             return true;
         }
-        return false;
+        return false;*/
     }
 }
